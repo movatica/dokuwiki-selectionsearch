@@ -1,0 +1,6 @@
+base   selectionsearch
+author movatica
+email  c0d3@movatica.com
+name   Search by selection
+desc   Easily search for selected text on wiki pages.
+url    https://github.com/movatica/dokuwiki-selectionsearch

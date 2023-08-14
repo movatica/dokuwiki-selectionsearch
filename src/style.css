@@ -1,0 +1,10 @@
+div#selectionsearch__tooltip {
+  position: absolute;
+  display: none;
+  z-index: 1;
+  width: 18px;
+  height: 18px;
+  background-color: white;
+  border: 1px solid green;
+  border-radius: 2px;
+}
