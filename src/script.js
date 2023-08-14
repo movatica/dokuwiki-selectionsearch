@@ -2,7 +2,7 @@
 jQuery(function(){
     'use strict';
 
-    var tooltip = jQuery('#selectionsearch__tooltip');
+    var tooltip = jQuery('#selectionsearch__tt');
     if (!tooltip[0]) return;
 
     var container = jQuery('#dokuwiki__content')
@@ -16,8 +16,7 @@ jQuery(function(){
         var query = selection.toString().trim();
         if (query.length < JSINFO.selectionsearch_minlength) return;
 
-        var href = '?' + jQuery.param({ id: JSINFO.id, do: 'search', q: query });
-        jQuery('#selectionsearch__link').attr('href', href);
+        tooltip.attr('href', '?' + jQuery.param({ id: JSINFO.id, do: 'search', q: query }));
 
         // for some reason, the selection rectangle is weirdly offset and we need to correct this
         var content_rect = container[0].getBoundingClientRect();
