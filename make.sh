@@ -56,7 +56,7 @@ function build {
 	# pack everything together
 	pushd "$target" &>/dev/null
 
-	zip -9 --filesync --recurse-paths "../selectionsearch_$target-$date.zip" *
+	zip -9 --filesync --recurse-paths "../dokuwiki_selectionsearch_$target-$date.zip" *
 
 	popd &>/dev/null
 }
