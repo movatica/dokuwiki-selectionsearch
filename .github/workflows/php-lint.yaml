@@ -1,0 +1,15 @@
+name: PHP Linter
+
+on:
+  push:
+    paths: [ '**.php' ]
+  pull_request:
+    paths: [ '**.php' ]
+
+jobs:
+  PHPLinter:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run syntax check on .php files
+        run:  find . -type f -iname "*.php" -print0 | xargs -0 -n1 php --syntax-check
