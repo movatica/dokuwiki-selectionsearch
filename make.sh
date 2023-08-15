@@ -15,7 +15,7 @@ function build {
 	else
 		for file in $(find . -type f -iname '*.php'); do
 			if [ ! -f "../$target/$file" ] || [ "$file" -nt "../$target/$file" ]; then
-				mkdir -p "../$target/$(dirname $file)"
+				mkdir -p "../$target/$(dirname "$file")"
 				php --strip "$file" > "../$target/$file"
 			fi
 		done
@@ -50,13 +50,13 @@ function build {
 	popd &>/dev/null
 
 	# add release date
-	local date=$(date +%F)
-	echo -e "\ndate   $date" >> $target/plugin.info.txt
+	local date; date=$(date +%F)
+	echo -e "\ndate   $date" >> "$target/plugin.info.txt"
 
 	# pack everything together
 	pushd "$target" &>/dev/null
 
-	zip -9 --filesync --recurse-paths "../dokuwiki_selectionsearch_$target-$date.zip" *
+	zip -9 --filesync --recurse-paths "../dokuwiki_selectionsearch_$target-$date.zip" ./*
 
 	popd &>/dev/null
 }
