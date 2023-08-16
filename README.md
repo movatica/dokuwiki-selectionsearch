@@ -15,8 +15,10 @@ Clicking the tooltip searches the wiki for the selected text.
 Prerequisites:
 - PHP 8 for PHP static code analysis and optimization
 - closure-compiler for Javascript static code analysis and optimization
+- gzip for asset precompression
+- zip for packaging
 
-Run `./make.sh  release` to build a release package. This minifies PHP and Javascript code.
+Run `./make.sh release` to build a release package. This minifies PHP and Javascript code.
 
 Run `./make.sh debug` to build a debug package with better readable code.
 
