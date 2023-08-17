@@ -24,18 +24,18 @@ function build {
 	popd &>/dev/null
 
 	# lint and minify javascript
-	local compilation_level=SIMPLE_OPTIMIZATIONS
+	local compilation_level=SIMPLE
 
 	if [ "$target" == "debug" ]; then
-		compilation_level=WHITESPACE_ONLY
+		compilation_level=BUNDLE
 	fi
 
 	if [ ! -f "$target/script.js" ] || [ "src/script.js" -nt "$target/script.js" ]; then
-		closure-compiler --js src/script.js --js_output_file "$target/script.js" \
-			--charset UTF-8 \
+		google-closure-compiler --js src/script.js --js_output_file "$target/script.js" \
+            --externs "/usr/local/lib/node_modules/google-closure-compiler/contrib/externs/jquery-3.3.js" \
 			--compilation_level $compilation_level \
-			--jscomp_warning undefinedVars \
-			--language_in ECMASCRIPT5_STRICT
+			--language_in STABLE \
+            --language_out STABLE
 	fi
 
 	# precompress javascript to support static asset serving
