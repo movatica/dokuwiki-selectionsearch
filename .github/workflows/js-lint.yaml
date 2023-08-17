@@ -14,11 +14,11 @@ jobs:
       - name: Install Google Closure Compiler
         run:  npm i -g google-closure-compiler
       - name: Run syntax check on .js files
-        run:  >
-              find . -type f -iname "*.js" -print0 | xargs -0 -n1
-              google-closure-compiler
-                  --checks_only
-                  --language_in STABLE
-                  --warning_level VERBOSE
-                  --externs "/usr/local/lib/node_modules/google-closure-compiler/contrib/externs/jquery-3.3.js"
-                  --js
+        run:  |
+              find . -type f -iname "*.js" -print0 | xargs -0 -n1 \
+              google-closure-compiler \
+                --checks_only \
+                --language_in STABLE \
+                --warning_level VERBOSE \
+                --externs "/usr/local/lib/node_modules/google-closure-compiler/contrib/externs/jquery-3.3.js" \
+                --js
