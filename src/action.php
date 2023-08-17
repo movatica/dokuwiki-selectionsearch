@@ -1,6 +1,4 @@
 <?php
-if (!defined('DOKU_INC')) die();
-
 class action_plugin_selectionsearch extends DokuWiki_Action_Plugin
 {
     const VALID_ACTIONS = ['show', 'search']; // TODO: make this configurable
