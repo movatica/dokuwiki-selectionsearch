@@ -1,7 +1,5 @@
 // show a wiki search button for selected text
 jQuery(function(){
-    'use strict';
-
     var tooltip = jQuery('#selectionsearch__tt');
     if (!tooltip[0]) return;
 
