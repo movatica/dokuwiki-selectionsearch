@@ -3,7 +3,7 @@ jQuery(function(){
     var tooltip = jQuery('#selectionsearch__tt');
     if (!tooltip[0]) return;
 
-    var container = jQuery('#dokuwiki__content')
+    var container = jQuery('#dokuwiki__content');
 
     // mouseup callback for content div
     container.mouseup(function(event){
