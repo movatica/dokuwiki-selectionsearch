@@ -1,8 +1,6 @@
 <?php
 class action_plugin_selectionsearch extends DokuWiki_Action_Plugin
 {
-    const VALID_ACTIONS = ['show', 'search']; // TODO: make this configurable
-
     public function register(Doku_Event_Handler $controller)
     {
         $controller->register_hook('DOKUWIKI_STARTED', 'AFTER',  $this, 'publish_configuration');
@@ -20,7 +18,9 @@ class action_plugin_selectionsearch extends DokuWiki_Action_Plugin
         global $ACT;
         global $lang;
 
-        if (!in_array($ACT, self::VALID_ACTIONS)) return;
+        $use_on_actions = explode(',', $this->getConf('use_on_actions'));
+
+        if (!in_array($ACT, $use_on_actions)) return;
 
         // insert tooltip template
         $event->data .= <<<HTML
