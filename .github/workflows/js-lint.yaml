@@ -21,4 +21,5 @@ jobs:
                 --language_in STABLE \
                 --warning_level VERBOSE \
                 --externs "/usr/local/lib/node_modules/google-closure-compiler/contrib/externs/jquery-3.3.js" \
+                --externs "build/dokuwiki-externs.js" \
                 --js

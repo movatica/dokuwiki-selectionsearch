@@ -33,6 +33,7 @@ function build {
 	if [ ! -f "$target/script.js" ] || [ "src/script.js" -nt "$target/script.js" ]; then
 		google-closure-compiler --js src/script.js --js_output_file "$target/script.js" \
             --externs "/usr/local/lib/node_modules/google-closure-compiler/contrib/externs/jquery-3.3.js" \
+            --externs "build/dokuwiki-externs.js" \
 			--compilation_level $compilation_level \
 			--language_in STABLE \
             --language_out STABLE
