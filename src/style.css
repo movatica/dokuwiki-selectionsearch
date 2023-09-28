@@ -3,7 +3,7 @@ a#selectionsearch__tt {
   display: none;
   z-index: 1;
   background-color: white;
-  border: 1px solid green;
+  border: 1px solid @ini_border;
   border-radius: 4px;
   padding: 0px 4px 4px;
 }
