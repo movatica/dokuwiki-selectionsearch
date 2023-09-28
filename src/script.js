@@ -6,7 +6,7 @@ jQuery(function(){
     var container = jQuery('#dokuwiki__content');
 
     // mouseup callback for content div
-    container.mouseup(function(event){
+    container.on('mouseup', function(){
         tooltip.hide();
 
         var selection = window.getSelection();
