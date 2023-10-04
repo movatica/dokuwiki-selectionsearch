@@ -1,4 +1,11 @@
 <?php
+/**
+ * Action Plugin to inject the tooltip.
+ *
+ * @author movatica <c0d3@movatica.com>
+ * @copyright movatica 2023
+ * @license GNU General Public License, version 2
+ */
 class action_plugin_selectionsearch extends DokuWiki_Action_Plugin
 {
     public function register(Doku_Event_Handler $controller)
@@ -7,12 +14,18 @@ class action_plugin_selectionsearch extends DokuWiki_Action_Plugin
         $controller->register_hook('TPL_CONTENT_DISPLAY', 'BEFORE', $this, 'inject_tooltip_html');
     }
 
+    /**
+     * Publish plugin configuration for JavaScript.
+     */
     public function publish_configuration(Doku_Event $event, $param)
     {
         global $JSINFO;
         $JSINFO['selectionsearch_minlength'] = $this->getConf('min_query_length');
     }
 
+    /**
+     * Insert the tooltip HTML code into the wiki page.
+     */
     public function inject_tooltip_html(Doku_Event $event, $param)
     {
         global $ACT;
