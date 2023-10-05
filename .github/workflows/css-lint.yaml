@@ -1,0 +1,22 @@
+name: CSS linter
+
+on:
+  workflow_dispatch:
+  push:
+    paths: [ '**.css' ]
+  pull_request:
+    paths: [ '**.css' ]
+
+jobs:
+  Stylelint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+      - name: Install Stylelint
+        run:  npm install stylelint stylelint-config-standard
+      - name: Create Stylelint config
+        run:  |
+          echo '{ "extends": "stylelint-config-standard" }' > .stylelintrc.json
+      - name: Run Stylelint on .css files
+        run:  npx stylelint "**/*.css"
