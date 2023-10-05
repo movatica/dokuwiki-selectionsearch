@@ -14,9 +14,6 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
       - name: Install Stylelint
-        run:  npm install stylelint stylelint-config-standard
-      - name: Create Stylelint config
-        run:  |
-          echo '{ "extends": "stylelint-config-standard" }' > .stylelintrc.json
+        run:  npm install stylelint stylelint-less stylelint-config-standard-less
       - name: Run Stylelint on .css files
         run:  npx stylelint "**/*.css"
