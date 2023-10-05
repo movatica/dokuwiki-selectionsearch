@@ -31,12 +31,14 @@ function build {
 	fi
 
 	if [ ! -f "$target/script.js" ] || [ "src/script.js" -nt "$target/script.js" ]; then
+		echo "Compiling script.js"
 		google-closure-compiler --js src/script.js --js_output_file "$target/script.js" \
-            --externs "/usr/local/lib/node_modules/google-closure-compiler/contrib/externs/jquery-3.3.js" \
-            --externs "build/dokuwiki-externs.js" \
+			--externs "/usr/local/lib/node_modules/google-closure-compiler/contrib/externs/jquery-3.3.js" \
+			--externs "build/dokuwiki-externs.js" \
 			--compilation_level $compilation_level \
 			--language_in STABLE \
-            --language_out STABLE
+			--language_out STABLE \
+			--warning_level VERBOSE
 	fi
 
 	# precompress javascript to support static asset serving
