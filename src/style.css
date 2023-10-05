@@ -5,5 +5,5 @@ a#selectionsearch__tt {
   background-color: white;
   border: 1px solid @ini_border;
   border-radius: 4px;
-  padding: 0px 4px 4px;
+  padding: 0 4px 4px;
 }
