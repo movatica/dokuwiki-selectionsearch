@@ -28,10 +28,12 @@ Install the plugin package using the Extension Manager.
 
 ## Configuration
 
-In the Admin Configuration page, you can define the minimum threshhold for the selected text and the DokuWiki actions where the search tooltip should be available.
-If the user selects less characters than the threshhold, no popup will appear.
-The default is `3`.
-The default actions are `search` and `show`.
+There are three configuration options available through the Admin interface:
+| Name | Default |
+| --- | --- |
+| Minimal length of the selection | 3 |
+| Actions where the tooltip is activated | search,show |
+| Open search in new tab or window | yes |
 
 ## License
 
