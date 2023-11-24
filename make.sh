@@ -8,7 +8,13 @@ function build {
 	local target=$1
 	mkdir -p "$target"
 
+    if [ "$target" != "debug" ]; then
+        cp --update LICENSE "$target/"
+    fi
+
 	pushd src &>/dev/null
+
+	cp --update plugin.info.txt style.css "../$target/"
 
 	if [ "$target" == "debug" ]; then
 		find . -type f -iname '*.php' -exec cp --parents --update {} "../$target" \;
@@ -43,13 +49,6 @@ function build {
 
 	# precompress javascript to support static asset serving
 	gzip --force --keep --verbose "$target/script.js"
-
-	# copy other files
-	pushd src &>/dev/null
-
-	cp --update plugin.info.txt style.css "../$target/"
-
-	popd &>/dev/null
 
 	# get release date
 	local date;
@@ -88,7 +87,6 @@ case "$1" in
 		build release
 		;;
 	all)
-		check
 		build debug
 		build release
 		;;
