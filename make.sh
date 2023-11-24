@@ -47,19 +47,18 @@ function build {
 	# copy other files
 	pushd src &>/dev/null
 
-	cp plugin.info.txt "../$target/"
-	cp --update style.css "../$target/"
+	cp --update plugin.info.txt style.css "../$target/"
 
 	popd &>/dev/null
 
-	# add release date
-	local date; date=$(date +%F)
-	echo -e "\ndate   $date" >> "$target/plugin.info.txt"
+	# get release date
+	local date;
+	date=$(grep -E "^date\s+" "$target/plugin.info.txt" | grep -Eo "[^ \t]+$")
 
 	# pack everything together
 	pushd "$target" &>/dev/null
 
-	zip -9 --filesync --recurse-paths "../dokuwiki_selectionsearch_$target-$date.zip" ./*
+	zip -9 --latest-time --no-extra --filesync --recurse-paths "../dokuwiki_selectionsearch_$target-$date.zip" ./*
 
 	popd &>/dev/null
 }
