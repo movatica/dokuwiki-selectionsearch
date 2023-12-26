@@ -8,9 +8,7 @@ function build {
 	local target=$1
 	mkdir -p "$target"
 
-    if [ "$target" != "debug" ]; then
-        cp --update LICENSE "$target/"
-    fi
+    cp --update LICENSE "$target/"
 
 	pushd src &>/dev/null
 
@@ -57,7 +55,7 @@ function build {
 	# pack everything together
 	pushd "$target" &>/dev/null
 
-	zip -9 --latest-time --no-extra --filesync --recurse-paths "../dokuwiki_selectionsearch_$target-$date.zip" ./*
+	zip -9 -X --latest-time --filesync --recurse-paths "../dokuwiki_selectionsearch_$target-$date.zip" ./*
 
 	popd &>/dev/null
 }
