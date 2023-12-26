@@ -2,7 +2,8 @@ a#selectionsearch__tt {
   position: absolute;
   display: none;
   z-index: 1;
-  background-color: white;
+  color: @ini_text;
+  background-color: @ini_background;
   border: 1px solid @ini_border;
   border-radius: 4px;
   padding: 0 4px 4px;
